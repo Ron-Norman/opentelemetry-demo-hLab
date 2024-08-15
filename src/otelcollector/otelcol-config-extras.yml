@@ -16,3 +16,19 @@
 #    pipelines:
 #      traces:
 #        exporters: [spanmetrics, otlphttp/example]
+exporters:
+  otlp/exp_or:
+    endpoint: "10.10.230.177:4317" 
+    tls:
+      insecure: true 
+service:    
+  pipelines:
+    traces:
+      receivers: [otlp]
+      exporters: [otlp/exp_or]
+    metrics:
+      receivers: [otlp]
+      exporters: [otlp/exp_or]
+    logs:
+      receivers: [otlp]
+      exporters: [otlp/exp_or] 

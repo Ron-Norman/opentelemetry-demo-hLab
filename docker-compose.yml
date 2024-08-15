@@ -706,6 +706,7 @@ services:
     logging: *logging
     environment:
       - ENVOY_PORT
+      - LOG_LEVEL=DEBUG
 
   # Prometheus
   prometheus:
